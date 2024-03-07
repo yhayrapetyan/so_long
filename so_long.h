@@ -13,9 +13,14 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# define RED "\033[1;31m"
+# define YELLOW "\033[1;33m"
+# define RESET_COLOR "\033[0m"
+
 # include <unistd.h>
 # include <stdio.h>//maybe need to delete
 # include <stdlib.h>
+# include "./mlx/mlx.h"
 
 //	VALIDATION
 void	ft_error(char *message);
