@@ -14,10 +14,19 @@ NAME = so_long
 BONUS_NAME = checker
 RM = rm -f
 
+UNAME = $(shell uname -s)
+
+ifeq ($(UNAME),Darwin)
+	LIB_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+else
+	LIB_FLAGS = -L./mlx -lmlx -lXext -lX11 -lm -lbsd
+endif
+
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(OBJS) $(LIB_FLAGS) -o $(NAME) -o $(NAME)
 
 $(OBJS): $(HEADER) Makefile
 $(BONUS_OBJS): $(HEADER) Makefile
@@ -32,7 +41,7 @@ sanitize_bonus:
 bonus: $(BONUS_OBJS) $(BONUS_NAME)
 
 .c.o:
-	@$(CC) $(CFLAGS) -Imlx -c $< -o $(<:.c=.o)
+	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 clean:
 	@$(RM) $(OBJS) $(BONUS_OBJS)
