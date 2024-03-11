@@ -29,7 +29,7 @@ t_resolution	*is_larger_than_screen(t_game *game)
 		resolution->y += 1;
 		i++;
 	}
-	if (resolution->x > 60 || resolution->y > 33)
+	if (resolution->x > 60 || resolution->y > 34)
 	{
 		free(resolution);
 		return (NULL);

@@ -44,5 +44,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 void	init_map(t_game *game, char *path);
 void	init_window(t_game *game);
 void	init_images(t_game *game);
+void	create_map(t_game *game);
 
 #endif

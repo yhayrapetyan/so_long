@@ -43,7 +43,7 @@ void	play_game(void)
 
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, 720, 360, "so_long");
-	img.ptr = mlx_xpm_file_to_image(game.mlx, "./img/tree.xpm", &img.x, &img.y);
+	img.ptr = mlx_xpm_file_to_image(game.mlx, "./img/player.xpm", &img.x, &img.y);
 	img.x = 100;
 	img.y = 100;
 	game.img = img;
