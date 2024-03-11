@@ -21,10 +21,10 @@ typedef struct	s_data {
 }				t_data;
 
 
-
 void	init_game(t_game *game, char *path)
 {
 	init_map(game, path);
+	init_window(game);
 }
 
 int	main(int ac, char **av)
@@ -36,6 +36,7 @@ int	main(int ac, char **av)
 	if (!is_ber(av[1]))
 		ft_error("Invalid argument\n");
 	init_game(&game, av[1]);
+	// play_game();
 	system("leaks so_long");
 	return (0);
 }

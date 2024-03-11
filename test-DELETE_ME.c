@@ -1,3 +1,5 @@
+#include "so_long.h"
+
 int	move(int keycode, t_game *game)
 {
 	// ft_putnbr_fd(keycode, 1);

@@ -74,15 +74,8 @@ void	init_map(t_game *game, char *path)
 
 	fd = open_file(path);
 	read_file(game, fd);
-	// int	i = 0;
-	// while (game->draw.map[i])
-	// {
-	// 	printf("%s\n", game->draw.map[i]);
-	// 	i++;
-	// }
 	if (!game->draw.map[0])
 		ft_error("Invalid map: empty map\n");
 	check_is_rectangle(game->draw.map);
 	check_elements(game->draw.map);
-
 }

@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-static	void	free_split(char **str)
+void	free_split(char **str)
 {
 	int	i;
 

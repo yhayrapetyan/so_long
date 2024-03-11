@@ -1,9 +1,12 @@
 SRC =	validation.c \
 		ft_split.c \
+		init_window.c \
 		init_map.c \
 		ft_error.c \
 		helpers.c \
 		main.c \
+		test-DELETE_ME.c \
+#delete test-DELETE_ME.c from SRC
 
 GNL_SRC = get_next_line.c \
 		  get_next_line_utils.c
@@ -25,7 +28,7 @@ RM = rm -f
 UNAME = $(shell uname -s)
 
 ifeq ($(UNAME),Darwin)
-	LIB_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+	LIB_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit -lm
 else
 	LIB_FLAGS = -L./mlx -lmlx -lXext -lX11 -lm -lbsd
 endif
