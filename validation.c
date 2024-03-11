@@ -97,3 +97,36 @@ void	check_elements(char **str)
 		counter.empty < 1)
 		ft_error("Invalid map: invalid elements count in map\n");
 }
+int	is_horizontal_wall(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != '1')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+//need to check for NULL maybe
+void	is_surrounded_by_walls(char **str)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = ft_strlen(str[i]);
+	if (!is_horizontal_wall(str[i]))
+		ft_error("Invalid map: map is not surounded by walls\n");
+	while (str[i])
+	{
+		if (str[i][0] != '1' || str[i][len - 1] != '1')
+			ft_error("Invalid map: map is not surounded by walls\n");
+		i++;
+	}
+	if (!is_horizontal_wall(str[i - 1]))
+		ft_error("Invalid map: map is not surounded by walls\n");
+}

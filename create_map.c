@@ -18,6 +18,7 @@ void	create_map(t_game *game)
 	int	j;
 
 	i = 0;
+	is_surrounded_by_walls(game->draw.map);
 	while (game->draw.map[i])
 	{
 		printf("i = %d\n", i);

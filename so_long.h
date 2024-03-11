@@ -24,6 +24,7 @@
 
 //	VALIDATION
 void	check_for_double_new_line(char	*str);
+void	is_surrounded_by_walls(char **str);
 void	check_is_rectangle(char **str);
 void	check_elements(char **str);
 void	ft_error(char *message);
