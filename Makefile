@@ -1,6 +1,7 @@
 SRC =	validation.c \
 		ft_split.c \
 		init_window.c \
+		init_images.c \
 		init_map.c \
 		ft_error.c \
 		helpers.c \

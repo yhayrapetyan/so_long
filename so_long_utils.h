@@ -18,6 +18,12 @@
 # define RESET_COLOR "\033[0m"
 
 # define SPRITE_SIZE 32
+# define WALL_PATH "./img/wall.xpm"
+# define PLAYER_PATH "./img/player.xpm"
+# define EMPTY_PATH "./img/empty.xpm"
+# define COLLECTIBLE_PATH "./img/collectible.xpm"
+# define EXIT_PATH "./img/exit.xpm"
+# define ENEMY_PATH "./img/enemy.xpm"
 
 typedef struct s_img
 {
@@ -40,8 +46,6 @@ typedef struct s_draw
 {
 	char	*line;
 	char	**map;
-	int		height;
-	int		weight;
 }			t_draw;
 
 typedef struct s_game
@@ -50,6 +54,12 @@ typedef struct s_game
 	void	*win;
 	t_img	img;
 	t_draw	draw;
+	t_img	wall;
+	t_img	player;
+	t_img	exit;
+	t_img	collectible;
+	t_img	enemy;
+	t_img	empty;
 }				t_game;
 
 typedef struct s_counter

@@ -25,6 +25,8 @@ void	init_game(t_game *game, char *path)
 {
 	init_map(game, path);
 	init_window(game);
+	init_images(game);
+	// create_map(game);
 }
 
 int	main(int ac, char **av)
