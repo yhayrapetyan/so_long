@@ -1,4 +1,5 @@
 SRC =	validation.c \
+		is_map_playable.c \
 		ft_split.c \
 		init_window.c \
 		init_images.c \
@@ -22,7 +23,7 @@ OBJS = $(SRC:.c=.o)
 HEADER = so_long.h
 BONUS_OBJS = $(BONUS_SRC:.c=.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = so_long
 BONUS_NAME = checker
 RM = rm -f

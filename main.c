@@ -23,18 +23,18 @@ typedef struct	s_data {
 
 void	init_game(t_game *game, char *path)
 {
+
 	init_map(game, path);
 	init_window(game);
 	init_images(game);
 	create_map(game);
 	// mlx_loop(game->mlx);
-	printf("TEST\n");
+	printf("---------------------END----------------------------------\n");
 }
 
 int	main(int ac, char **av)
 {
 	t_game	game;
-
 	if (ac != 2)
 		ft_error("Invalid number of arguments\n");
 	if (!is_ber(av[1]))

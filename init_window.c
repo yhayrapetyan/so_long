@@ -16,19 +16,14 @@
 t_resolution	*is_larger_than_screen(t_game *game)
 {
 	t_resolution	*resolution;
-	int				i;
 
 	resolution = (t_resolution *)malloc(sizeof(t_resolution *));
 	// mlx_get_screen_size(game->mlx, &resolution.x, &resolution.y);
 	resolution->x = 0;
 	resolution->y = 0;
-	i = 0;
-	resolution->x = ft_strlen(game->draw.map[i]);
-	while (game->draw.map[i])
-	{
-		resolution->y += 1;
-		i++;
-	}
+	resolution->x = ft_strlen(game->draw.map[0]);
+	while (game->draw.map[resolution->y])
+		resolution->y++;
 	if (resolution->x > 60 || resolution->y > 34)
 	{
 		free(resolution);

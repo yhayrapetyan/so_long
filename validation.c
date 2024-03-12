@@ -23,6 +23,28 @@ int	is_ber(char *str)
 	return (1);
 }
 
+void	check_is_playable(char **str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
+		{
+			if (!ft_strchr("1FX", str[i][j]))
+			{
+				free_split(str);
+				ft_error("Invalid path\n");
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
 void	check_for_double_new_line(char	*str)
 {
 	int	i;

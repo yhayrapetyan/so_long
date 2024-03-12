@@ -42,6 +42,13 @@ typedef struct s_resolution
 	int	y;
 }			t_resolution;
 
+//need for flood_fill
+typedef struct s_point
+{
+	int			x;
+	int			y;
+}				t_point;
+
 typedef struct s_draw
 {
 	char	*line;
