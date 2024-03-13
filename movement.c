@@ -16,12 +16,12 @@ int	movement(int keycode, t_game *game)
 {
 	if (keycode == UP_KEY)
 		move_up(game);
-	// else if (keycode == DOWN_KEY)
-	// 	move_down(game);
-	// else if (keycode == RIGHT_KEY)
-	// 	move_right(game);
-	// else if (keycode == LEFT_KEY)
-	// 	move_left(game);
+	else if (keycode == DOWN_KEY)
+		move_down(game);
+	else if (keycode == RIGHT_KEY)
+		move_right(game);
+	else if (keycode == LEFT_KEY)
+		move_left(game);
 	else if (keycode == ESC)
 	{
 		free_split(game->draw.map);
@@ -29,5 +29,6 @@ int	movement(int keycode, t_game *game)
 		system("leaks so_long");
 		exit(0);
 	}
+	printf("step = %d\n", game->step);
 	return (0);
 }

@@ -26,5 +26,6 @@ void	init_images(t_game *game)
 	game->exit = new_sprite(game, EXIT_PATH);
 	game->empty = new_sprite(game, EMPTY_PATH);
 	game->collectible = new_sprite(game, COLLECTIBLE_PATH);
+	game->enemy = new_sprite(game, ENEMY_PATH);
 }
 

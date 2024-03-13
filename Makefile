@@ -4,7 +4,10 @@ SRC =	validation.c \
 		init_window.c \
 		init_images.c \
 		movement.c \
-		movement_utils.c \
+		move_up.c \
+		move_down.c \
+		move_left.c \
+		move_right.c \
 		create_map.c \
 		init_map.c \
 		ft_error.c \

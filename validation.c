@@ -82,14 +82,18 @@ void	check_is_rectangle(t_game *game)
 	}
 }
 
-void	count(t_game *game, char ch)
+void	count(t_game *game, char ch, int y, int x)
 {
 	if (ch == '1')
 		game->counter.wall += 1;
 	else if (ch == '0')
 		game->counter.empty += 1;
 	else if (ch == 'P')
+	{
 		game->counter.player += 1;
+		game->position.x = x;
+		game->position.y = y;
+	}
 	else if (ch == 'C')
 		game->counter.collectible += 1;
 	else if (ch == 'E')
@@ -128,7 +132,7 @@ void	check_elements(t_game *game)
 		j = 0;
 		while (game->draw.map[i][j])
 		{
-			count(game, game->draw.map[i][j]);
+			count(game, game->draw.map[i][j], i, j);
 			j++;
 		}
 		i++;

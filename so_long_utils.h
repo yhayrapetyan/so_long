@@ -74,6 +74,8 @@ typedef struct s_game
 	void		*win;
 	t_point		size;
 	t_counter	counter;
+	t_point		position;
+	int			step;
 	t_img		img;
 	t_draw		draw;
 	t_img		wall;
