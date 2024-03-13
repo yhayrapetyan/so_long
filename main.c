@@ -20,7 +20,7 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
-
+// need to free map in the end
 void	init_game(t_game *game, char *path)
 {
 
@@ -28,7 +28,8 @@ void	init_game(t_game *game, char *path)
 	init_window(game);
 	init_images(game);
 	create_map(game);
-	// mlx_loop(game->mlx);
+	mlx_hook(game->win, KEY_PRESS, KEY_PRESS_MASK, movement, game);
+	mlx_loop(game->mlx);
 	printf("---------------------END----------------------------------\n");
 }
 

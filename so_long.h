@@ -23,12 +23,12 @@
 
 
 //	VALIDATION
-void	check_for_double_new_line(char	*str);
-void	is_surrounded_by_walls(char **str);
-void	check_is_playable(char **str);
-void	is_map_playable(char **str);
-void	check_is_rectangle(char **str);
-void	check_elements(char **str);
+void	check_for_double_new_line(t_game *game);
+void	is_surrounded_by_walls(t_game *game);
+void	check_is_playable(char **str, t_game *game);
+void	is_map_playable(t_game *game);
+void	check_is_rectangle(t_game *game);
+void	check_elements(t_game *game);
 void	ft_error(char *message);
 int		is_ber(char *str);
 
@@ -49,5 +49,7 @@ void	init_map(t_game *game, char *path);
 void	init_window(t_game *game);
 void	init_images(t_game *game);
 void	create_map(t_game *game);
+int		movement(int keycode, t_game *game);
+void	move_up(t_game *game);
 
 #endif

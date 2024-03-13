@@ -25,6 +25,9 @@
 # define EXIT_PATH "./img/exit.xpm"
 # define ENEMY_PATH "./img/enemy.xpm"
 
+# define KEY_PRESS 2
+# define KEY_PRESS_MASK 1
+
 typedef struct s_img
 {
 	void	*ptr;
@@ -59,6 +62,7 @@ typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
+	t_point	size;
 	t_img	img;
 	t_draw	draw;
 	t_img	wall;
@@ -90,6 +94,7 @@ typedef struct s_counter
 #  define DOWN_KEY  125
 #  define LEFT_KEY  123
 #  define RIGHT_KEY 124
+#  define ESC		53
 
 # else
 #  define UP_KEY    0

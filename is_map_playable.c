@@ -49,44 +49,43 @@ t_point	find_first_empty_cell(char **str)
 	return (index);
 }
 
-char	**copy_map(char **str, t_point size)
+char	**copy_map(t_game *game)
 {
 	char	**cpy;
 	int		i;
 
-	cpy = (char **)malloc(sizeof(char *) * (size.y + 1));
+	cpy = (char **)malloc(sizeof(char *) * (game->size.y + 1));
 	if (!cpy)
-		ft_error("Memory allocation failed\n");
-	cpy[size.y] = NULL;
-	i = 0;
-	while (i < size.y)
 	{
-		cpy[i] = (char *)malloc(sizeof(char) * (size.x + 1));
+		free_split(game->draw.map);
+		ft_error("Memory allocation failed\n");
+	}
+	cpy[game->size.y] = NULL;
+	i = 0;
+	while (i < game->size.y)
+	{
+		cpy[i] = (char *)malloc(sizeof(char) * (game->size.x + 1));
 		if (!cpy[i])
 		{
+			free_split(game->draw.map);
 			free_split(cpy);
 			ft_error("Memory allocation failed\n");
 		}
-		ft_strcpy(cpy[i], str[i]);
+		ft_strcpy(cpy[i], game->draw.map[i]);
 		i++;
 	}
 	return (cpy);
 }
 
-void	is_map_playable(char **str)
+void	is_map_playable(t_game *game)
 {
 	t_point	index;
-	t_point	size;
 	char	**cpy;
 
-	size.x = ft_strlen(str[0]);
-	size.y = 1;
-	while (str[size.y])
-		size.y++;
 
-	index = find_first_empty_cell(str);
-	cpy = copy_map(str, size);
-	flood_fill(cpy, size, index, cpy[index.y][index.x]);
-	check_is_playable(cpy);
+	index = find_first_empty_cell(game->draw.map);
+	cpy = copy_map(game);
+	flood_fill(cpy, game->size, index, cpy[index.y][index.x]);
+	check_is_playable(cpy, game);
 	free_split(cpy);
 }

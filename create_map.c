@@ -65,7 +65,7 @@ void	draw_map(t_game *game)
 
 void	create_map(t_game *game)
 {
-	is_surrounded_by_walls(game->draw.map);
-	is_map_playable(game->draw.map);
+	is_surrounded_by_walls(game);
+	is_map_playable(game);
 	draw_map(game);
 }

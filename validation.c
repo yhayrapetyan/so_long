@@ -23,7 +23,7 @@ int	is_ber(char *str)
 	return (1);
 }
 
-void	check_is_playable(char **str)
+void	check_is_playable(char **str, t_game *game)
 {
 	int	i;
 	int	j;
@@ -37,6 +37,7 @@ void	check_is_playable(char **str)
 			if (!ft_strchr("1FX", str[i][j]))
 			{
 				free_split(str);
+				free_split(game->draw.map);
 				ft_error("Invalid path\n");
 			}
 			j++;
@@ -45,31 +46,38 @@ void	check_is_playable(char **str)
 	}
 }
 
-void	check_for_double_new_line(char	*str)
+void	check_for_double_new_line(t_game *game)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (game->draw.line[i])
 	{
-		if (str[i] == '\n' && str[i + 1] == '\n')
+		if (game->draw.line[i] == '\n' && game->draw.line[i + 1] == '\n')
+		{
+			free_split(game->draw.map);
+			free(game->draw.line);
 			ft_error("Invalid map: double new lines\n");
+		}
 		i++;
 	}
 }
 
-void	check_is_rectangle(char **str)
+void	check_is_rectangle(t_game *game)
 {
 	int	i;
 	int	temp;
 
 	i = 0;
-	temp = ft_strlen(str[i]);
+	temp = ft_strlen(game->draw.map[i]);
 	i++;
-	while (str[i])
+	while (game->draw.map[i])
 	{
-		if (ft_strlen(str[i]) != temp)
+		if (ft_strlen(game->draw.map[i]) != temp)
+		{
+			free_split(game->draw.map);
 			ft_error("Invalid map: not a rectangle\n");
+		}
 		i++;
 	}
 }
@@ -92,32 +100,43 @@ void	count(t_counter *counter, char ch)
 		ft_error("Invalid map: invalid elements in map\n");
 }
 
-void	check_elements(char **str)
+t_counter	init_counter(void)
 {
 	t_counter	counter;
-	int			i;
-	int			j;
 
-	i = 0;
 	counter.wall = 0;
 	counter.empty = 0;
 	counter.player = 0;
 	counter.enemy = 0;
 	counter.exit = 0;
 	counter.collectible = 0;
-	while (str[i])
+	return (counter);
+}
+
+void	check_elements(t_game *game)
+{
+	t_counter	counter;
+	int			i;
+	int			j;
+
+	i = 0;
+	counter = init_counter();
+	while (game->draw.map[i])
 	{
 		j = 0;
-		while (str[i][j])
+		while (game->draw.map[i][j])
 		{
-			count(&counter, str[i][j]);
+			count(&counter, game->draw.map[i][j]);
 			j++;
 		}
 		i++;
 	}
 	if (counter.player != 1 || counter.exit != 1 || counter.collectible < 1 || \
 		counter.empty < 1)
+	{
+		free_split(game->draw.map);
 		ft_error("Invalid map: invalid elements count in map\n");
+	}
 }
 int	is_horizontal_wall(char *str)
 {
@@ -134,21 +153,29 @@ int	is_horizontal_wall(char *str)
 }
 
 //need to check for NULL maybe
-void	is_surrounded_by_walls(char **str)
+void	is_surrounded_by_walls(t_game *game)
 {
 	int	i;
-	int	len;
 
 	i = 0;
-	len = ft_strlen(str[i]);
-	if (!is_horizontal_wall(str[i]))
-		ft_error("Invalid map: map is not surounded by walls\n");
-	while (str[i])
+	if (!is_horizontal_wall(game->draw.map[i]))
 	{
-		if (str[i][0] != '1' || str[i][len - 1] != '1')
+		free_split(game->draw.map);
+		ft_error("Invalid map: map is not surounded by walls\n");
+	}
+	while (game->draw.map[i])
+	{
+		if (game->draw.map[i][0] != '1' || \
+			game->draw.map[i][game->size.x - 1] != '1')
+		{
+			free_split(game->draw.map);
 			ft_error("Invalid map: map is not surounded by walls\n");
+		}
 		i++;
 	}
-	if (!is_horizontal_wall(str[i - 1]))
+	if (!is_horizontal_wall(game->draw.map[i - 1]))
+	{
+		free_split(game->draw.map);
 		ft_error("Invalid map: map is not surounded by walls\n");
+	}
 }

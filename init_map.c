@@ -45,6 +45,7 @@ void	read_file(t_game *game, int fd)
 	char	*trim_temp;
 
 	temp = NULL;
+	game->draw.line = NULL;
 	while (1)
 	{
 		temp = get_next_line(fd);
@@ -62,7 +63,7 @@ void	read_file(t_game *game, int fd)
 	trim_temp = game->draw.line;
 	game->draw.line = ft_strtrim(game->draw.line, "\n");
 	free(trim_temp);
-	check_for_double_new_line(game->draw.line);
+	check_for_double_new_line(game);
 	game->draw.map = ft_split(game->draw.line, '\n');
 	free(game->draw.line);
 }
@@ -76,6 +77,6 @@ void	init_map(t_game *game, char *path)
 	read_file(game, fd);
 	if (!game->draw.map[0])
 		ft_error("Invalid map: empty map\n");
-	check_is_rectangle(game->draw.map);
-	check_elements(game->draw.map);
+	check_is_rectangle(game);
+	check_elements(game);
 }
