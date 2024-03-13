@@ -82,22 +82,25 @@ void	check_is_rectangle(t_game *game)
 	}
 }
 
-void	count(t_counter *counter, char ch)
+void	count(t_game *game, char ch)
 {
 	if (ch == '1')
-		counter->wall += 1;
+		game->counter.wall += 1;
 	else if (ch == '0')
-		counter->empty += 1;
+		game->counter.empty += 1;
 	else if (ch == 'P')
-		counter->player += 1;
+		game->counter.player += 1;
 	else if (ch == 'C')
-		counter->collectible += 1;
+		game->counter.collectible += 1;
 	else if (ch == 'E')
-		counter->exit += 1;
+		game->counter.exit += 1;
 	else if (ch == 'X')
-		counter->enemy += 1;
+		game->counter.enemy += 1;
 	else
+	{
+		free_split(game->draw.map);
 		ft_error("Invalid map: invalid elements in map\n");
+	}
 }
 
 t_counter	init_counter(void)
@@ -115,24 +118,23 @@ t_counter	init_counter(void)
 
 void	check_elements(t_game *game)
 {
-	t_counter	counter;
 	int			i;
 	int			j;
 
 	i = 0;
-	counter = init_counter();
+	game->counter = init_counter();
 	while (game->draw.map[i])
 	{
 		j = 0;
 		while (game->draw.map[i][j])
 		{
-			count(&counter, game->draw.map[i][j]);
+			count(game, game->draw.map[i][j]);
 			j++;
 		}
 		i++;
 	}
-	if (counter.player != 1 || counter.exit != 1 || counter.collectible < 1 || \
-		counter.empty < 1)
+	if (game->counter.player != 1 || game->counter.exit != 1 || \
+		game->counter.collectible < 1 || game->counter.empty < 1)
 	{
 		free_split(game->draw.map);
 		ft_error("Invalid map: invalid elements count in map\n");

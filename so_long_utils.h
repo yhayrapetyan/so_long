@@ -58,21 +58,6 @@ typedef struct s_draw
 	char	**map;
 }			t_draw;
 
-typedef struct s_game
-{
-	void	*mlx;
-	void	*win;
-	t_point	size;
-	t_img	img;
-	t_draw	draw;
-	t_img	wall;
-	t_img	player;
-	t_img	exit;
-	t_img	collectible;
-	t_img	enemy;
-	t_img	empty;
-}				t_game;
-
 typedef struct s_counter
 {
 	int	wall;
@@ -82,6 +67,22 @@ typedef struct s_counter
 	int	empty;
 	int	enemy;
 }	t_counter;
+
+typedef struct s_game
+{
+	void		*mlx;
+	void		*win;
+	t_point		size;
+	t_counter	counter;
+	t_img		img;
+	t_draw		draw;
+	t_img		wall;
+	t_img		player;
+	t_img		exit;
+	t_img		collectible;
+	t_img		enemy;
+	t_img		empty;
+}				t_game;
 
 # ifdef __linux__
 #  define UP_KEY    65362
