@@ -37,6 +37,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 // int		ft_strchr(const char *s, int c);
 void	play_game(void); // delete
 void	free_split(char **str); // maybe delete
+char	*ft_strcpy(char *dest, char *src);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_strlen(char *str);
 char	**ft_split(char const *s, char c);
