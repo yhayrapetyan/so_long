@@ -28,6 +28,9 @@
 # define KEY_PRESS 2
 # define KEY_PRESS_MASK 1
 
+# define DESTROY_NOTIFY 17
+# define NO_EVENT_MASK 0
+
 typedef struct s_img
 {
 	void	*ptr;

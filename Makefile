@@ -3,7 +3,7 @@ SRC =	validation.c \
 		ft_split.c \
 		init_window.c \
 		init_images.c \
-		movement.c \
+		hook_operations.c \
 		move_up.c \
 		move_down.c \
 		move_left.c \

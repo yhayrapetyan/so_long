@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement.c                                         :+:      :+:    :+:   */
+/*   hook_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuhayrap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,6 +11,14 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	close_win(t_game *game)
+{
+	free_split(game->draw.map);
+	mlx_destroy_window(game->mlx, game->win);
+	exit(0);
+	return (0);
+}
 
 int	movement(int keycode, t_game *game)
 {
@@ -29,6 +37,5 @@ int	movement(int keycode, t_game *game)
 		system("leaks so_long");
 		exit(0);
 	}
-	printf("step = %d\n", game->step);
 	return (0);
 }

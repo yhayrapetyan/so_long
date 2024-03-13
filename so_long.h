@@ -50,6 +50,7 @@ void	init_window(t_game *game);
 void	init_images(t_game *game);
 void	create_map(t_game *game);
 int		movement(int keycode, t_game *game);
+int		close_win(t_game *game);
 void	move_up(t_game *game);
 void	move_down(t_game *game);
 void	move_left(t_game *game);
