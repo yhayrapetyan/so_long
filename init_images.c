@@ -20,6 +20,14 @@ t_img	new_sprite(t_game *game, char *path)
 	return (img);
 }
 
+void	init_enemy(t_game *game)
+{
+	game->enemy.frame1 = new_sprite(game, FRAME1);
+	game->enemy.frame2 = new_sprite(game, FRAME2);
+	game->enemy.frame3 = new_sprite(game, FRAME3);
+	game->enemy.frame4 = new_sprite(game, FRAME4);
+}
+
 void	init_images(t_game *game)
 {
 	game->wall = new_sprite(game, WALL_PATH);
@@ -27,5 +35,5 @@ void	init_images(t_game *game)
 	game->exit = new_sprite(game, EXIT_PATH);
 	game->empty = new_sprite(game, EMPTY_PATH);
 	game->collectible = new_sprite(game, COLLECTIBLE_PATH);
-	game->enemy = new_sprite(game, ENEMY_PATH);
+	init_enemy(game);
 }

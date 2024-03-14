@@ -26,9 +26,6 @@ void	pitw(t_game *game, int i, int j, char element)
 	else if (element == 'P')
 		mlx_put_image_to_window(game->mlx, game->win, game->player.ptr,
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
-	else if (element == 'X')
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy.ptr,
-			j * SPRITE_SIZE, i * SPRITE_SIZE);
 	else if (element == 'C')
 		mlx_put_image_to_window(game->mlx, game->win, game->collectible.ptr,
 			j * SPRITE_SIZE, i * SPRITE_SIZE);

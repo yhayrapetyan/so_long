@@ -4,6 +4,7 @@ SRC =	validation.c \
 		init_window.c \
 		init_images.c \
 		hook_operations.c \
+		enemy_animation.c \
 		move_up.c \
 		move_down.c \
 		move_left.c \

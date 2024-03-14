@@ -18,12 +18,17 @@
 # define RESET_COLOR "\033[0m"
 
 # define SPRITE_SIZE 32
+# define SPEED 200
+
 # define WALL_PATH "./img/wall.xpm"
 # define PLAYER_PATH "./img/player.xpm"
 # define EMPTY_PATH "./img/empty.xpm"
 # define COLLECTIBLE_PATH "./img/collectible.xpm"
 # define EXIT_PATH "./img/exit.xpm"
-# define ENEMY_PATH "./img/enemy.xpm"
+# define FRAME1 "./img/enemy/frame1.xpm"
+# define FRAME2 "./img/enemy/frame2.xpm"
+# define FRAME3 "./img/enemy/frame3.xpm"
+# define FRAME4 "./img/enemy/frame4.xpm"
 
 # define KEY_PRESS 2
 # define KEY_PRESS_MASK 1
@@ -71,6 +76,14 @@ typedef struct s_counter
 	int	enemy;
 }	t_counter;
 
+typedef struct s_enemy
+{
+	t_img	frame1;
+	t_img	frame2;
+	t_img	frame3;
+	t_img	frame4;
+}	t_enemy;
+
 typedef struct s_game
 {
 	void		*mlx;
@@ -85,7 +98,7 @@ typedef struct s_game
 	t_img		player;
 	t_img		exit;
 	t_img		collectible;
-	t_img		enemy;
+	t_enemy		enemy;
 	t_img		empty;
 }				t_game;
 

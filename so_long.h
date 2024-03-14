@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>//maybe need to delete
 # include <stdlib.h>
+# include <time.h>//delete
 # include <fcntl.h>
 # include "./mlx/mlx.h"
 # include "so_long_utils.h"
@@ -52,6 +53,7 @@ void	init_images(t_game *game);
 void	create_map(t_game *game);
 int		movement(int keycode, t_game *game);
 int		close_win(t_game *game);
+int		enemy_animation(t_game *game);
 void	move_up(t_game *game);
 void	move_down(t_game *game);
 void	move_left(t_game *game);

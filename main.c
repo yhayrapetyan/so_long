@@ -28,6 +28,7 @@ void	init_game(t_game *game, char *path)
 	init_window(game);
 	init_images(game);
 	create_map(game);
+	mlx_loop_hook(game->mlx, enemy_animation, game);
 	mlx_hook(game->win, KEY_PRESS, KEY_PRESS_MASK, movement, game);
 	mlx_hook(game->win, DESTROY_NOTIFY, NO_EVENT_MASK, close_win, game);
 	mlx_loop(game->mlx);
