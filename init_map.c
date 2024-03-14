@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int	open_file(char *path)
+static int	open_file(char *path)
 {
 	int	fd;
 
@@ -22,7 +22,7 @@ int	open_file(char *path)
 	return (fd);
 }
 
-int	is_empty(char *str)
+static int	is_empty(char *str)
 {
 	int	i;
 
@@ -39,7 +39,7 @@ int	is_empty(char *str)
 // NEED TO FREE draw.map eaven if system_leaks is ok
 // in trim maybe more
 // in error handling need to check memory leaks
-void	read_file(t_game *game, int fd)
+static void	read_file(t_game *game, int fd)
 {
 	char	*temp;
 	char	*trim_temp;

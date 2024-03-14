@@ -16,11 +16,10 @@
 # include <unistd.h>
 # include <stdio.h>//maybe need to delete
 # include <stdlib.h>
-# include <time.h>//delete
 # include <fcntl.h>
-# include "./mlx/mlx.h"
+# include "../mlx/mlx.h"
 # include "so_long_utils.h"
-# include "./get_next_line/get_next_line.h"
+# include "get_next_line.h"
 
 
 //	VALIDATION
@@ -35,7 +34,7 @@ int		is_ber(char *str);
 
 // HELPERS
 int		ft_strcmp(const char *s1, const char *s2);
-// int		ft_strchr(const char *s, int c);
+int		ft_strchr(char *s, int c);
 void	play_game(void); // delete
 void	free_split(char **str); // maybe delete
 char	*ft_strcpy(char *dest, char *src);
@@ -45,6 +44,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+void	flood_fill(char **tab, t_point size, t_point cur, char to_fill);
 
 // MAIN FUNCTIONS
 void	init_map(t_game *game, char *path);
