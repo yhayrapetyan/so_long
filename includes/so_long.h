@@ -35,7 +35,6 @@ int		is_ber(char *str);
 // HELPERS
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strchr(char *s, int c);
-void	play_game(void); // delete
 void	free_split(char **str); // maybe delete
 char	*ft_strcpy(char *dest, char *src);
 void	ft_putnbr_fd(int n, int fd);

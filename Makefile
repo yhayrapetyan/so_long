@@ -4,10 +4,7 @@ SRC =	init_window.c \
 		enemy_animation.c \
 		create_map.c \
 		init_map.c \
-		main.c \
-		test-DELETE_ME.c \
-
-#delete test-DELETE_ME.c from SRC
+		main.c
 
 VALIDATION_SRC = 	check_elements.c \
 					check_for_double_new_line.c \
@@ -37,23 +34,30 @@ MOVEMENT_SRC = 	move_up.c \
 GNL_SRC = get_next_line.c \
 		  get_next_line_utils.c
 
-GNL_SRC := $(addprefix src/get_next_line/, $(GNL_SRC))
-VALIDATION_SRC := $(addprefix src/validation/, $(VALIDATION_SRC))
-HELPERS_SRC := $(addprefix src/helpers/, $(HELPERS_SRC))
-MOVEMENT_SRC := $(addprefix src/movement/, $(MOVEMENT_SRC))
-SRC += $(GNL_SRC)
-SRC += $(VALIDATION_SRC)
-SRC += $(HELPERS_SRC)
-SRC += $(MOVEMENT_SRC)
-INC = ./includes/
-
-
-OBJS = $(SRC:.c=.o)
 HEADERS = 	so_long.h \
 			so_long_utils.h \
 			get_next_line.h
 
+SRC_DIR = ./src/game/
+VALIDATION_DIR = ./src/validation/
+HELPERS_DIR = ./src/helpers/
+MOVEMENT_DIR = ./src/movement/
+GNL_DIR = ./src/get_next_line/
+INC = ./includes/
+
 HEADERS := $(addprefix $(INC), $(HEADERS))
+SRC := $(addprefix $(SRC_DIR), $(SRC))
+GNL_SRC := $(addprefix $(GNL_DIR), $(GNL_SRC))
+VALIDATION_SRC := $(addprefix $(VALIDATION_DIR), $(VALIDATION_SRC))
+HELPERS_SRC := $(addprefix $(HELPERS_DIR), $(HELPERS_SRC))
+MOVEMENT_SRC := $(addprefix $(MOVEMENT_DIR), $(MOVEMENT_SRC))
+SRC += $(GNL_SRC)
+SRC += $(VALIDATION_SRC)
+SRC += $(HELPERS_SRC)
+SRC += $(MOVEMENT_SRC)
+
+OBJS = $(SRC:.c=.o)
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
