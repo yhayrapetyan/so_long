@@ -24,7 +24,6 @@ void	init_game(t_game *game, char *path)
 	mlx_hook(game->win, KEY_PRESS, KEY_PRESS_MASK, movement, game);
 	mlx_hook(game->win, DESTROY_NOTIFY, NO_EVENT_MASK, close_win, game);
 	mlx_loop(game->mlx);
-	printf("---------------------END----------------------------------\n");
 }
 
 int	main(int ac, char **av)
