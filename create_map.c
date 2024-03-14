@@ -68,4 +68,5 @@ void	create_map(t_game *game)
 	is_surrounded_by_walls(game);
 	is_map_playable(game);
 	draw_map(game);
+	mlx_string_put(game->mlx, game->win, 0, 0, 0xFFFFFF, "Steps: 0");
 }

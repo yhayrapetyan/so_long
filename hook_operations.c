@@ -20,6 +20,24 @@ int	close_win(t_game *game)
 	return (0);
 }
 
+void	print_steps(t_game *game)
+{
+	char	*string;
+	int		i;
+
+	string = ft_itoa(game->step);
+	i = 0;
+	while (game->draw.map[0][i])
+	{
+		pitw(game, 0, i, '1');
+		i++;
+	}
+	mlx_string_put(game->mlx, game->win, 0, 0, 0xFFFFFF, "Steps: ");
+	mlx_string_put(game->mlx, game->win, 64, 0, 0xFFFFFF, string);
+	free(string);
+	string = NULL;
+}
+
 int	movement(int keycode, t_game *game)
 {
 	if (keycode == UP_KEY)
@@ -37,5 +55,7 @@ int	movement(int keycode, t_game *game)
 		system("leaks so_long");
 		exit(0);
 	}
+	print_steps(game);
+	// system("leaks so_long");
 	return (0);
 }
