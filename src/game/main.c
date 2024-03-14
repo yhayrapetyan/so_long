@@ -12,14 +12,6 @@
 
 #include "so_long.h"
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
 // need to free map in the end
 void	init_game(t_game *game, char *path)
 {
@@ -38,12 +30,12 @@ void	init_game(t_game *game, char *path)
 int	main(int ac, char **av)
 {
 	t_game	game;
+
 	if (ac != 2)
 		ft_error("Invalid number of arguments\n");
 	if (!is_ber(av[1]))
 		ft_error("Invalid argument\n");
 	init_game(&game, av[1]);
-	// play_game();
 	system("leaks so_long");
 	return (0);
 }

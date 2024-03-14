@@ -28,7 +28,6 @@ void	pitw_enemy(t_game *game, int i, int j, char *element)
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 }
 
-
 void	draw_enemy(t_game *game, int y, int x)
 {
 	static int	i;
@@ -58,7 +57,7 @@ int	enemy_animation(t_game *game)
 		while (game->draw.map[i][j])
 		{
 			if (game->draw.map[i][j] == 'X')
-				draw_enemy(game, i ,j);
+				draw_enemy(game, i, j);
 			j++;
 		}
 		i++;

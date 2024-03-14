@@ -68,7 +68,6 @@ static void	read_file(t_game *game, int fd)
 	free(game->draw.line);
 }
 
-
 void	init_map(t_game *game, char *path)
 {
 	int	fd;
