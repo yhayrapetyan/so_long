@@ -56,6 +56,5 @@ int	movement(int keycode, t_game *game)
 		exit(0);
 	}
 	print_steps(game);
-	// system("leaks so_long");
 	return (0);
 }

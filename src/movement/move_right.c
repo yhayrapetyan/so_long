@@ -25,7 +25,6 @@ static void	move_to_empty(t_game *game)
 
 static void	move_to_enemy(t_game *game)
 {
-	//temp solution
 	mlx_destroy_window(game->mlx, game->win);
 	free_split(game->draw.map);
 	ft_error("You Lost\n");
@@ -45,7 +44,6 @@ static void	move_to_exit(t_game *game)
 {
 	if (game->counter.collectible == 0)
 	{
-		//temp solution
 		free_split(game->draw.map);
 		write(1, "You Win!\n", 9);
 		system("leaks so_long");
@@ -69,5 +67,4 @@ void	move_right(t_game *game)
 		move_to_exit(game);
 	else if (game->draw.map[game->position.y][game->position.x + 1] == 'P')
 		move_to_empty(game);
-
 }

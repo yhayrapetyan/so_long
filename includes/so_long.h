@@ -21,7 +21,6 @@
 # include "so_long_utils.h"
 # include "get_next_line.h"
 
-
 //	VALIDATION
 void	check_for_double_new_line(t_game *game);
 void	is_surrounded_by_walls(t_game *game);
