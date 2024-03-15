@@ -72,10 +72,15 @@ void	init_map(t_game *game, char *path)
 {
 	int	fd;
 
+	game->draw.map = NULL;
+	game->step = 0;
 	fd = open_file(path);
 	read_file(game, fd);
 	if (!game->draw.map[0])
 		ft_error("Invalid map: empty map\n");
 	check_is_rectangle(game);
 	check_elements(game);
+	is_larger_than_screen(game);
+	is_surrounded_by_walls(game);
+	is_map_playable(game);
 }

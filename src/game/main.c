@@ -15,7 +15,6 @@
 // need to free map in the end
 void	init_game(t_game *game, char *path)
 {
-	game->step = 0;
 	init_map(game, path);
 	init_window(game);
 	init_images(game);

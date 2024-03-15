@@ -15,7 +15,6 @@
 // someone use mlx_destroy_display
 void	init_window(t_game *game)
 {
-	is_larger_than_screen(game);
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, SPRITE_SIZE * game->size.x,
 			SPRITE_SIZE * game->size.y, "so_long");
