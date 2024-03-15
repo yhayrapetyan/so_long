@@ -4,6 +4,7 @@ SRC =	init_window.c \
 		enemy_animation.c \
 		create_map.c \
 		init_map.c \
+		end_game.c \
 		main.c
 
 VALIDATION_SRC = 	check_elements.c \

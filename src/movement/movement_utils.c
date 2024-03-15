@@ -37,9 +37,8 @@ void	move_to_empty(t_game *game, int	y, int x, char direction)
 
 void	move_to_enemy(t_game *game)
 {
-	mlx_destroy_window(game->mlx, game->win);
-	free_split(game->draw.map);
-	ft_error("You Lost\n");
+	write(1, "You Lost :(", 11);
+	end_game(game);
 }
 
 void	move_to_collectible(t_game *game, int y, int x, char direction)
@@ -59,10 +58,9 @@ void	move_to_exit(t_game *game, int y, int x, char direction)
 {
 	if (game->counter.collectible == 0)
 	{
-		free_split(game->draw.map);
 		write(1, "You Win!\n", 9);
+		end_game(game);
 		system("leaks so_long");
-		exit(0);
 	}
 	pitw(game, y, x, 'P');
 	pitw(game, game->position.y, game->position.x, '0');

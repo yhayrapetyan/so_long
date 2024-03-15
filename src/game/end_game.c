@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook_operations.c                                  :+:      :+:    :+:   */
+/*   end_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuhayrap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,45 +12,20 @@
 
 #include "so_long.h"
 
-int	close_win(t_game *game)
+void    end_game(t_game *game)
 {
-	end_game(game);
-	return (0);
-}
-
-void	print_steps(t_game *game)
-{
-	char	*string;
-	int		i;
-
-	string = ft_itoa(game->step);
-	i = 0;
-	while (game->draw.map[0][i])
-	{
-		pitw(game, 0, i, '1');
-		i++;
-	}
-	mlx_string_put(game->mlx, game->win, 0, 0, 0xFFFFFF, "Steps: ");
-	mlx_string_put(game->mlx, game->win, 64, 0, 0xFFFFFF, string);
-	free(string);
-	string = NULL;
-}
-
-int	movement(int keycode, t_game *game)
-{
-	if (keycode == UP_KEY)
-		move_up(game);
-	else if (keycode == DOWN_KEY)
-		move_down(game);
-	else if (keycode == RIGHT_KEY)
-		move_right(game);
-	else if (keycode == LEFT_KEY)
-		move_left(game);
-	else if (keycode == ESC)
-	{
-		end_game(game);
-		system("leaks so_long");
-	}
-	print_steps(game);
-	return (0);
+    free_split(game->draw.map);
+    mlx_destroy_image(game->mlx, game->exit.ptr);
+    mlx_destroy_image(game->mlx, game->wall.ptr);
+    mlx_destroy_image(game->mlx, game->empty.ptr);
+    mlx_destroy_image(game->mlx, game->player.ptr);
+    mlx_destroy_image(game->mlx, game->collectible.ptr);
+    mlx_destroy_image(game->mlx, game->enemy.frame1.ptr);
+    mlx_destroy_image(game->mlx, game->enemy.frame2.ptr);
+    mlx_destroy_image(game->mlx, game->enemy.frame3.ptr);
+    mlx_destroy_image(game->mlx, game->enemy.frame4.ptr);
+    mlx_destroy_window(game->mlx, game->win);
+    mlx_destroy_display(game->mlx);
+    free(game->mlx);
+    exit(0);
 }

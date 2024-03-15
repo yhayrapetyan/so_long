@@ -62,5 +62,6 @@ void	move_to_exit(t_game *game, int y, int x, char direction);
 void	move_to_collectible(t_game *game, int y, int x, char direction);
 void	move_to_enemy(t_game *game);
 void	move_to_empty(t_game *game, int	y, int x, char direction);
+void    end_game(t_game *game);
 
 #endif
