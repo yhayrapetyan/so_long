@@ -23,7 +23,7 @@ void	check_is_playable(char **str, t_game *game)
 		j = 0;
 		while (str[i][j])
 		{
-			if (!ft_strchr("1FX", str[i][j]))
+			if (!ft_strchr("1FX0", str[i][j]))
 			{
 				free_split(str);
 				free_split(game->draw.map);
