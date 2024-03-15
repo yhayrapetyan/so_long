@@ -21,6 +21,7 @@
 
 # define SPRITE_SIZE 32
 # define SPEED 200
+# define STR_COLOR 0xFFFFFF
 
 # define WALL_PATH "./img/wall.xpm"
 # define PLAYER_PATH "./img/player.xpm"
@@ -110,6 +111,8 @@ typedef struct s_game
 #  define LEFT_KEY  65361
 #  define RIGHT_KEY 65363
 #  define ESC		65307
+#  define STR_X		16
+#  define STR_Y		16
 
 # elif defined(__APPLE__)
 #  define UP_KEY    126
@@ -117,12 +120,16 @@ typedef struct s_game
 #  define LEFT_KEY  123
 #  define RIGHT_KEY 124
 #  define ESC		53
+#  define STR_X		0
+#  define STR_Y		0
 
 # else
 #  define UP_KEY    0
 #  define DOWN_KEY  0
 #  define LEFT_KEY  0
 #  define RIGHT_KEY 0
+#  define STR_X		0
+#  define STR_Y		0
 # endif
 
 #endif

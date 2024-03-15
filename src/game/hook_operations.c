@@ -30,8 +30,10 @@ static void	print_steps(t_game *game)
 		pitw(game, 0, i, '1');
 		i++;
 	}
-	mlx_string_put(game->mlx, game->win, 0, 0, 0xFFFFFF, "Steps: ");
-	mlx_string_put(game->mlx, game->win, 64, 0, 0xFFFFFF, string);
+	mlx_string_put(game->mlx, game->win, STR_X, STR_Y,
+		STR_COLOR, "Steps: ");
+	mlx_string_put(game->mlx, game->win, STR_X + 43, STR_Y,
+		STR_COLOR, string);
 	free(string);
 	string = NULL;
 }

@@ -63,5 +63,6 @@ static void	draw_map(t_game *game)
 void	create_map(t_game *game)
 {
 	draw_map(game);
-	mlx_string_put(game->mlx, game->win, 0, 0, 0xFFFFFF, "Steps: 0");
+	mlx_string_put(game->mlx, game->win, STR_X, STR_Y,
+		STR_COLOR, "Steps: 0");
 }
