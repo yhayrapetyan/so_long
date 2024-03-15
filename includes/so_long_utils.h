@@ -107,6 +107,7 @@ typedef struct s_game
 #  define DOWN_KEY  65364
 #  define LEFT_KEY  65361
 #  define RIGHT_KEY 65363
+#  define ESC		65307
 
 # elif defined(__APPLE__)
 #  define UP_KEY    126
