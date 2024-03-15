@@ -27,6 +27,7 @@ void	is_surrounded_by_walls(t_game *game);
 void	check_is_playable(char **str, t_game *game);
 void	is_map_playable(t_game *game);
 void	check_is_rectangle(t_game *game);
+void	is_larger_than_screen(t_game *game);
 void	check_elements(t_game *game);
 void	ft_error(char *message);
 int		is_ber(char *str);

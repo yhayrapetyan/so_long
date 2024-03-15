@@ -13,7 +13,8 @@ VALIDATION_SRC = 	check_elements.c \
 					check_is_rectangle.c \
 					ft_error.c \
 					is_ber.c \
-					is_surrounded_by_walls.c
+					is_surrounded_by_walls.c \
+					is_larger_than_screen.c
 
 HELPERS_SRC = 	ft_itoa.c \
 				ft_strchr.c \
