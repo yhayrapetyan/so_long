@@ -68,7 +68,7 @@ void	check_elements(t_game *game)
 		i++;
 	}
 	if (game->counter.player != 1 || game->counter.exit != 1 || \
-		game->counter.collectible < 1 || game->counter.empty < 1)
+		game->counter.collectible < 1)
 	{
 		free_split(game->draw.map);
 		ft_error("Invalid map: invalid elements count in map\n");

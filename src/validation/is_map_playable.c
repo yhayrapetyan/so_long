@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-static t_point	find_first_empty_cell(char **str)
+static t_point	find_exit_or_first_empty_cell(char **str)
 {
 	t_point	index;
 
@@ -22,11 +22,11 @@ static t_point	find_first_empty_cell(char **str)
 		index.x = 1;
 		while (str[index.y][index.x])
 		{
-			if (str[index.y][index.x] == '0')
+			if (str[index.y][index.x] == '0' || str[index.y][index.x] == 'E')
 				break ;
 			index.x++;
 		}
-		if (str[index.y][index.x] == '0')
+		if (str[index.y][index.x] == '0' || str[index.y][index.x] == 'E')
 			break ;
 		index.y++;
 	}
@@ -66,9 +66,9 @@ void	is_map_playable(t_game *game)
 	t_point	index;
 	char	**cpy;
 
-	index = find_first_empty_cell(game->draw.map);
+	index = find_exit_or_first_empty_cell(game->draw.map);
 	cpy = copy_map(game);
-	flood_fill(cpy, game->size, index, cpy[index.y][index.x]);
+	flood_fill(cpy, game->size, index, '0');
 	check_is_playable(cpy, game);
 	free_split(cpy);
 }

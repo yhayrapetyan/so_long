@@ -81,8 +81,8 @@ $(NAME): $(OBJS)
 
 $(OBJS): $(HEADERS) Makefile
 
-sanitize:
-	cc  $(LIB_FLAGS) -fsanitize=address $(SRC) -o $(NAME)
+sanitize: $(OBJS)
+	cc $(OBJS) $(LIB_FLAGS) -fsanitize=address  -o $(NAME)
 
 .c.o:
 	@$(CC) $(CFLAGS) -I $(INC) -c  $< -o $(<:.c=.o)
