@@ -5,7 +5,7 @@ SRC =	init_window.c \
 		create_map.c \
 		init_map.c \
 		end_game.c \
-		main.c
+		main.c \
 
 VALIDATION_SRC = 	check_elements.c \
 					check_for_double_new_line.c \
@@ -28,11 +28,8 @@ HELPERS_SRC = 	ft_itoa.c \
 				ft_split.c \
 				flood_fill.c
 
-MOVEMENT_SRC = 	move_up.c \
-				move_down.c \
-				move_left.c \
-				move_right.c \
-				movement_utils.c
+MOVEMENT_SRC = 	movement_utils.c \
+				move_to.c
 
 GNL_SRC = get_next_line.c \
 		  get_next_line_utils.c

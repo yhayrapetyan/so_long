@@ -41,13 +41,13 @@ static void	print_steps(t_game *game)
 int	movement(int keycode, t_game *game)
 {
 	if (keycode == UP_KEY)
-		move_up(game);
+		move_to(game, game->position.y - 1, game->position.x, 'U');
 	else if (keycode == DOWN_KEY)
-		move_down(game);
+		move_to(game, game->position.y + 1, game->position.x, 'D');
 	else if (keycode == RIGHT_KEY)
-		move_right(game);
+		move_to(game, game->position.y, game->position.x + 1, 'R');
 	else if (keycode == LEFT_KEY)
-		move_left(game);
+		move_to(game, game->position.y, game->position.x - 1, 'L');
 	else if (keycode == ESC)
 	{
 		end_game(game);

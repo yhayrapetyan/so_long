@@ -53,15 +53,12 @@ void	create_map(t_game *game);
 int		movement(int keycode, t_game *game);
 int		close_win(t_game *game);
 int		enemy_animation(t_game *game);
-void	move_up(t_game *game);
-void	move_down(t_game *game);
-void	move_left(t_game *game);
-void	move_right(t_game *game);
 void	pitw(t_game *game, int i, int j, char element);
 void	move_to_exit(t_game *game, int y, int x, char direction);
 void	move_to_collectible(t_game *game, int y, int x, char direction);
 void	move_to_enemy(t_game *game);
 void	move_to_empty(t_game *game, int	y, int x, char direction);
 void    end_game(t_game *game);
+void	move_to(t_game *game, int y, int x, char direction);
 
 #endif

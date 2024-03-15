@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_up.c                                          :+:      :+:    :+:   */
+/*   move_to.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuhayrap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,16 +12,16 @@
 
 #include "so_long.h"
 
-void	move_up(t_game *game)
+void	move_to(t_game *game, int y, int x, char direction)
 {
-	if (game->draw.map[game->position.y - 1][game->position.x] == '0')
-		move_to_empty(game, game->position.y - 1, game->position.x, 'U');
-	else if (game->draw.map[game->position.y - 1][game->position.x] == 'X')
+	if (game->draw.map[y][x] == '0')
+		move_to_empty(game, y, x, direction);
+	else if (game->draw.map[y][x] == 'X')
 		move_to_enemy(game);
-	else if (game->draw.map[game->position.y - 1][game->position.x] == 'C')
-		move_to_collectible(game, game->position.y - 1, game->position.x, 'U');
-	else if (game->draw.map[game->position.y - 1][game->position.x] == 'E')
-		move_to_exit(game, game->position.y - 1, game->position.x, 'U');
-	else if (game->draw.map[game->position.y - 1][game->position.x] == 'P')
-		move_to_empty(game, game->position.y - 1, game->position.x, 'U');
+	else if (game->draw.map[y][x] == 'C')
+		move_to_collectible(game, y, x, direction);
+	else if (game->draw.map[y][x] == 'E')
+		move_to_exit(game, y, x, direction);
+	else if (game->draw.map[y][x] == 'P')
+		move_to_empty(game, y, x, direction);
 }
