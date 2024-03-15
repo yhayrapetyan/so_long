@@ -37,7 +37,9 @@ void	move_to_empty(t_game *game, int	y, int x, char direction)
 
 void	move_to_enemy(t_game *game)
 {
-	write(1, "You Lost :(", 11);
+	write(2, RED, 7);
+	write(1, "You Lost :(\n", 12);
+	write(2, RESET_COLOR, 4);
 	end_game(game);
 }
 
@@ -58,7 +60,9 @@ void	move_to_exit(t_game *game, int y, int x, char direction)
 {
 	if (game->counter.collectible == 0)
 	{
+		write(1, GREEN, 7);
 		write(1, "You Win!\n", 9);
+		write(2, RESET_COLOR, 4);
 		end_game(game);
 		system("leaks so_long");
 	}
