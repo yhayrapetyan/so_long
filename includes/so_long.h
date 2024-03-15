@@ -58,5 +58,9 @@ void	move_down(t_game *game);
 void	move_left(t_game *game);
 void	move_right(t_game *game);
 void	pitw(t_game *game, int i, int j, char element);
+void	move_to_exit(t_game *game, int y, int x, char direction);
+void	move_to_collectible(t_game *game, int y, int x, char direction);
+void	move_to_enemy(t_game *game);
+void	move_to_empty(t_game *game, int	y, int x, char direction);
 
 #endif

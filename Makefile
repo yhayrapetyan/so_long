@@ -30,7 +30,8 @@ HELPERS_SRC = 	ft_itoa.c \
 MOVEMENT_SRC = 	move_up.c \
 				move_down.c \
 				move_left.c \
-				move_right.c
+				move_right.c \
+				movement_utils.c
 
 GNL_SRC = get_next_line.c \
 		  get_next_line_utils.c
