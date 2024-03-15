@@ -63,6 +63,12 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
 RM = rm -f
 
+BLUE   = \033[0;34m
+GREEN    = \033[0;32m
+RED = \033[0;31m
+YELLOW  = \033[0;33m
+NO_COLOR    = \033[m
+
 UNAME = $(shell uname -s)
 
 ifeq ($(UNAME),Darwin)
@@ -71,25 +77,49 @@ else
 	LIB_FLAGS = -L./mlx -lmlx -lXext -lX11 -lm -lbsd
 endif
 
-all: $(NAME)
+all:$(NAME)
+
+print_info: print_name
+	@printf "%b" "$(BLUE)Compiler: $(GREEN)$(CC)\n"
+	@printf "%b" "$(BLUE)Name: $(GREEN)$(NAME)\n"
+	@printf "%b" "$(BLUE)Uname: $(GREEN)$(UNAME)\n"
+	@printf "%b" "$(BLUE)C Flags: $(GREEN)$(CFLAGS)\n"
+	@printf "%b" "$(BLUE)Lib Flags: $(GREEN)$(LIB_FLAGS)\n"
+
+
+print_name:
+	@printf "%b" "$(BLUE)"
+	@echo "   _____  ____          _      ____  _   _  _____ "
+	@echo "  / ____|/ __ \        | |    / __ \| \ | |/ ____|"
+	@echo " | (___ | |  | |       | |   | |  | |  \| | |  __ "
+	@echo "  \___ \| |  | |       | |   | |  | | . \` | | |_ |"
+	@echo "  ____) | |__| |       | |___| |__| | |\  | |__| |"
+	@echo " |_____/ \____/        |______\____/|_| \_|\_____|"
+	@echo "\n"
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) $(LIB_FLAGS) -o $(NAME)
+	@$(CC) $(OBJS) $(LIB_FLAGS) -o $(NAME)
+	@printf "%b" "$(BLUE)$@ $(GREEN)[✓]\n"
 
-$(OBJS): $(HEADERS) Makefile
+$(OBJS): print_info $(HEADERS) Makefile
 
 sanitize: $(OBJS)
-	cc $(OBJS) $(LIB_FLAGS) -fsanitize=address  -o $(NAME)
+	@cc $(OBJS) $(LIB_FLAGS) -fsanitize=address  -o $(NAME)
 
 .c.o:
+	@printf "%b" "$(YELLOW)Compiling $(GREEN)$<\n"
 	@$(CC) $(CFLAGS) -I $(INC) -c  $< -o $(<:.c=.o)
 
-clean:
+
+clean: print_name
 	@$(RM) $(OBJS)
+	@printf "%b" "$(BLUE)$@: $(GREEN)[✓]\n"
 
 fclean: clean
 	@$(RM) $(NAME)
+	@printf "%b" "$(BLUE)$@: $(GREEN)[✓]\n"
 
 re: fclean all
+	@printf "%b" "$(BLUE)$@: $(GREEN)[✓]\n"
 
 .PHONY: all clean fclean re sanitize bonus
