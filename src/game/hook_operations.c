@@ -18,7 +18,7 @@ int	close_win(t_game *game)
 	return (0);
 }
 
-void	print_steps(t_game *game)
+static void	print_steps(t_game *game)
 {
 	char	*string;
 	int		i;

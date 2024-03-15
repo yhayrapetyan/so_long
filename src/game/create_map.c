@@ -31,7 +31,7 @@ void	pitw(t_game *game, int i, int j, char element)
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 }
 
-void	draw_map(t_game *game)
+static void	draw_map(t_game *game)
 {
 	int	i;
 	int	j;

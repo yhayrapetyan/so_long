@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	pitw_enemy(t_game *game, int i, int j, char *element)
+static void	pitw_enemy(t_game *game, int i, int j, char *element)
 {
 	if (ft_strcmp(element, "F1") == 0)
 		mlx_put_image_to_window(game->mlx, game->win, game->enemy.frame1.ptr,
@@ -28,7 +28,7 @@ void	pitw_enemy(t_game *game, int i, int j, char *element)
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 }
 
-void	draw_enemy(t_game *game, int y, int x)
+static void	draw_enemy(t_game *game, int y, int x)
 {
 	static int	i;
 

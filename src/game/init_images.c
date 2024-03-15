@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-t_img	new_sprite(t_game *game, char *path)
+static t_img	new_sprite(t_game *game, char *path)
 {
 	t_img	img;
 
@@ -20,7 +20,7 @@ t_img	new_sprite(t_game *game, char *path)
 	return (img);
 }
 
-void	init_enemy(t_game *game)
+static void	init_enemy(t_game *game)
 {
 	game->enemy.frame1 = new_sprite(game, FRAME1);
 	game->enemy.frame2 = new_sprite(game, FRAME2);
