@@ -15,16 +15,16 @@
 static void	pitw_enemy(t_game *game, int i, int j, char *element)
 {
 	if (ft_strcmp(element, "F1") == 0)
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy.frame1.ptr,
+		mlx_put_image_to_window(game->mlx, game->win, game->enemy.frame1,
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 	else if (ft_strcmp(element, "F2") == 0)
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy.frame2.ptr,
+		mlx_put_image_to_window(game->mlx, game->win, game->enemy.frame2,
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 	else if (ft_strcmp(element, "F3") == 0)
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy.frame3.ptr,
+		mlx_put_image_to_window(game->mlx, game->win, game->enemy.frame3,
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 	if (ft_strcmp(element, "F4") == 0)
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy.frame4.ptr,
+		mlx_put_image_to_window(game->mlx, game->win, game->enemy.frame4,
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 }
 

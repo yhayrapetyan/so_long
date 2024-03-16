@@ -12,12 +12,11 @@
 
 #include "so_long.h"
 
-static t_img	new_sprite(t_game *game, char *path)
+static void	*new_sprite(t_game *game, char *path)
 {
-	t_img	img;
+	t_point	i;
 
-	img.ptr = mlx_xpm_file_to_image(game->mlx, path, &img.x, &img.y);
-	return (img);
+	return (mlx_xpm_file_to_image(game->mlx, path, &i.x, &i.y));
 }
 
 static void	init_enemy(t_game *game)

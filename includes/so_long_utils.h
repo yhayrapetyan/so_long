@@ -39,17 +39,6 @@
 # define DESTROY_NOTIFY 17
 # define NO_EVENT_MASK 0
 
-typedef struct s_img
-{
-	void	*ptr;
-	int		*pixels;
-	int		line_size;
-	int		mem;
-	int		x;
-	int		y;
-	int		movements;
-}	t_img;
-
 typedef struct s_point
 {
 	int			x;
@@ -74,10 +63,10 @@ typedef struct s_counter
 
 typedef struct s_enemy
 {
-	t_img	frame1;
-	t_img	frame2;
-	t_img	frame3;
-	t_img	frame4;
+	void	*frame1;
+	void	*frame2;
+	void	*frame3;
+	void	*frame4;
 }	t_enemy;
 
 typedef struct s_game
@@ -89,12 +78,12 @@ typedef struct s_game
 	t_point		position;
 	int			step;
 	t_draw		draw;
-	t_img		wall;
-	t_img		player;
-	t_img		exit;
-	t_img		collectible;
+	void		*wall;
+	void		*player;
+	void		*exit;
+	void		*collectible;
 	t_enemy		enemy;
-	t_img		empty;
+	void		*empty;
 }				t_game;
 
 # ifdef __linux__

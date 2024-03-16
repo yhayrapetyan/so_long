@@ -15,19 +15,19 @@
 void	pitw(t_game *game, int i, int j, char element)
 {
 	if (element == '1')
-		mlx_put_image_to_window(game->mlx, game->win, game->wall.ptr,
+		mlx_put_image_to_window(game->mlx, game->win, game->wall,
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 	else if (element == '0')
-		mlx_put_image_to_window(game->mlx, game->win, game->empty.ptr,
+		mlx_put_image_to_window(game->mlx, game->win, game->empty,
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 	else if (element == 'E')
-		mlx_put_image_to_window(game->mlx, game->win, game->exit.ptr,
+		mlx_put_image_to_window(game->mlx, game->win, game->exit,
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 	else if (element == 'P')
-		mlx_put_image_to_window(game->mlx, game->win, game->player.ptr,
+		mlx_put_image_to_window(game->mlx, game->win, game->player,
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 	else if (element == 'C')
-		mlx_put_image_to_window(game->mlx, game->win, game->collectible.ptr,
+		mlx_put_image_to_window(game->mlx, game->win, game->collectible,
 			j * SPRITE_SIZE, i * SPRITE_SIZE);
 }
 
