@@ -17,6 +17,11 @@ void	check_for_double_new_line(t_game *game)
 	int	i;
 
 	i = 0;
+	if (!game->draw.line)
+	{
+		free_split(game->draw.map);
+		ft_error("Invalid map: empty map\n");
+	}
 	while (game->draw.line[i])
 	{
 		if (game->draw.line[i] == '\n' && game->draw.line[i + 1] == '\n')
