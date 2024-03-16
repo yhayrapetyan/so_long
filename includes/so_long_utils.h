@@ -50,13 +50,6 @@ typedef struct s_img
 	int		movements;
 }	t_img;
 
-typedef struct s_resolution
-{
-	int	x;
-	int	y;
-}			t_resolution;
-
-//need for flood_fill
 typedef struct s_point
 {
 	int			x;
@@ -95,7 +88,6 @@ typedef struct s_game
 	t_counter	counter;
 	t_point		position;
 	int			step;
-	t_img		img;
 	t_draw		draw;
 	t_img		wall;
 	t_img		player;

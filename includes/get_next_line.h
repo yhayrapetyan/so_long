@@ -21,11 +21,11 @@
 # include <unistd.h>
 # include <fcntl.h>
 
+int		ft_strlen(char *s);
+char	*get_line(char *str);
 char	*get_next_line(int fd);
 int		ft_strchr(char *s, int c);
-char	*ft_strjoin(char *s1, char *s2);
-char	*get_line(char *str);
 char	*get_new_left_str(char *str);
-int		ft_strlen(char *s);
+char	*ft_strjoin(char *s1, char *s2);
 
 #endif
