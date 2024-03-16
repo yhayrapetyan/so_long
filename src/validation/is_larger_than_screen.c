@@ -12,8 +12,6 @@
 
 #include "so_long.h"
 
-// IDK why get_screen_size don't work temp solution
-// mlx_get_screen_size(game->mlx, &resolution.x, &resolution.y);
 void	is_larger_than_screen(t_game *game)
 {
 	game->size.y = 0;

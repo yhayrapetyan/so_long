@@ -26,7 +26,6 @@ static int	is_horizontal_wall(char *str)
 	return (1);
 }
 
-//need to check for NULL maybe
 void	is_surrounded_by_walls(t_game *game)
 {
 	int	i;

@@ -36,9 +36,6 @@ static int	is_empty(char *str)
 	return (1);
 }
 
-// NEED TO FREE draw.map eaven if system_leaks is ok
-// in trim maybe more
-// in error handling need to check memory leaks
 static void	read_file(t_game *game, int fd)
 {
 	char	*temp;
@@ -78,7 +75,10 @@ void	init_map(t_game *game, char *path)
 	read_file(game, fd);
 	close(fd);
 	if (!game->draw.map[0])
+	{
+		free_split(game->draw.map);
 		ft_error("Invalid map: empty map\n");
+	}
 	check_is_rectangle(game);
 	check_elements(game);
 	is_larger_than_screen(game);

@@ -12,7 +12,6 @@
 
 #include "so_long.h"
 
-// need to free map in the end
 void	init_game(t_game *game, char *path)
 {
 	init_map(game, path);

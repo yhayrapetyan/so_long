@@ -73,17 +73,17 @@ typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
+	t_draw		draw;
 	t_point		size;
 	t_counter	counter;
 	t_point		position;
 	int			step;
-	t_draw		draw;
 	void		*wall;
 	void		*player;
 	void		*exit;
 	void		*collectible;
-	t_enemy		enemy;
 	void		*empty;
+	t_enemy		enemy;
 }				t_game;
 
 # ifdef __linux__

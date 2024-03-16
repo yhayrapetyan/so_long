@@ -12,7 +12,6 @@
 
 #include "so_long.h"
 
-// someone use mlx_destroy_display
 void	init_window(t_game *game)
 {
 	game->mlx = mlx_init();
