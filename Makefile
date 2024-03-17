@@ -77,39 +77,25 @@ else
 	LIB_FLAGS = -L./mlx -lmlx -lXext -lX11 -lm -lbsd
 endif
 
-all:$(NAME)
+SRC_COUNT_TOT := $(shell echo -n $(SRC) | wc -w)
+SRC_COUNT := 0
+SRC_PCT = $(shell expr 100 \* $(SRC_COUNT) / $(SRC_COUNT_TOT))
 
-print_info: print_name
-	@printf "%b" "$(BLUE)Compiler: $(GREEN)$(CC)\n"
-	@printf "%b" "$(BLUE)Name: $(GREEN)$(NAME)\n"
-	@printf "%b" "$(BLUE)Uname: $(GREEN)$(UNAME)\n"
-	@printf "%b" "$(BLUE)C Flags: $(GREEN)$(CFLAGS)\n"
-	@printf "%b" "$(BLUE)Lib Flags: $(GREEN)$(LIB_FLAGS)\n"
+all: print_info $(NAME)
 
-
-print_name:
-	@printf "%b" "$(BLUE)"
-	@echo "   _____  ____          _      ____  _   _  _____ "
-	@echo "  / ____|/ __ \        | |    / __ \| \ | |/ ____|"
-	@echo " | (___ | |  | |       | |   | |  | |  \| | |  __ "
-	@echo "  \___ \| |  | |       | |   | |  | | . \` | | |_ |"
-	@echo "  ____) | |__| |       | |___| |__| | |\  | |__| |"
-	@echo " |_____/ \____/        |______\____/|_| \_|\_____|"
-	@echo "\n"
-
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) 
 	@$(CC) $(OBJS) $(LIB_FLAGS) -o $(NAME)
-	@printf "%b" "$(BLUE)$@ $(GREEN)[✓]\n"
+	@printf "%b" "$(BLUE)\n$@ $(GREEN)[✓]\n"
 
-$(OBJS): print_info $(HEADERS) Makefile
+$(OBJS): $(HEADERS) Makefile
 
 sanitize: $(OBJS)
 	@cc $(OBJS) $(LIB_FLAGS) -fsanitize=address  -o $(NAME)
 
 .c.o:
-	@printf "%b" "$(YELLOW)Compiling $(GREEN)$<\n"
+	@$(eval SRC_COUNT = $(shell expr $(SRC_COUNT) + 1))
+	@printf "\r%18s\r$(YELLOW)[ %d/%d (%d%%) ]$(NO_COLOR)" "" $(SRC_COUNT) $(SRC_COUNT_TOT) $(SRC_PCT)
 	@$(CC) $(CFLAGS) -I $(INC) -c  $< -o $(<:.c=.o)
-
 
 clean: print_name
 	@$(RM) $(OBJS)
@@ -122,4 +108,23 @@ fclean: clean
 re: fclean all
 	@printf "%b" "$(BLUE)$@: $(GREEN)[✓]\n"
 
-.PHONY: all clean fclean re sanitize bonus
+print_info: print_name
+	@printf "%b" "$(BLUE)Compiler: $(GREEN)$(CC)\n"
+	@printf "%b" "$(BLUE)Name: $(GREEN)$(NAME)\n"
+	@printf "%b" "$(BLUE)Uname: $(GREEN)$(UNAME)\n"
+	@printf "%b" "$(BLUE)C Flags: $(GREEN)$(CFLAGS)\n"
+	@printf "%b" "$(BLUE)Lib Flags: $(GREEN)$(LIB_FLAGS)\n"
+	@printf "%b" "$(BLUE)Src Count: $(GREEN)$(SRC_COUNT_TOT)\n"
+
+
+print_name:
+	@printf "%b" "$(BLUE)"
+	@echo "   _____  ____          _      ____  _   _  _____ "
+	@echo "  / ____|/ __ \        | |    / __ \| \ | |/ ____|"
+	@echo " | (___ | |  | |       | |   | |  | |  \| | |  __ "
+	@echo "  \___ \| |  | |       | |   | |  | | . \` | | |_ |"
+	@echo "  ____) | |__| |       | |___| |__| | |\  | |__| |"
+	@echo " |_____/ \____/        |______\____/|_| \_|\_____|"
+	@echo "\n"
+
+.PHONY: all clean fclean re sanitize bonus print_name print_info
