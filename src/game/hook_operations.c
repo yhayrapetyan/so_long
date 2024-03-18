@@ -32,7 +32,7 @@ static void	print_steps(t_game *game)
 	}
 	mlx_string_put(game->mlx, game->win, STR_X, STR_Y,
 		STR_COLOR, "Steps: ");
-	mlx_string_put(game->mlx, game->win, STR_X + 43, STR_Y,
+	mlx_string_put(game->mlx, game->win, STR_X + INTERVAL, STR_Y,
 		STR_COLOR, string);
 	free(string);
 	string = NULL;
@@ -53,6 +53,7 @@ int	movement(int keycode, t_game *game)
 		end_game(game);
 		system("leaks so_long");
 	}
+	// system("leaks so_long");
 	print_steps(game);
 	return (0);
 }

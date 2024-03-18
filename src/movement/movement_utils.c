@@ -12,19 +12,19 @@
 
 #include "so_long.h"
 
-static void change_position(t_game *game, char direction)
+static void	change_position(t_game *game, char direction)
 {
-    if (direction == 'R')
-        game->position.x++;
-    else if (direction == 'L')
-        game->position.x--;
-    else if (direction == 'U')
-        game->position.y--;
-    else if (direction == 'D')
-        game->position.y++;
+	if (direction == 'R')
+		game->position.x++;
+	else if (direction == 'L')
+		game->position.x--;
+	else if (direction == 'U')
+		game->position.y--;
+	else if (direction == 'D')
+		game->position.y++;
 }
 
-void	move_to_empty(t_game *game, int	y, int x, char direction)
+void	move_to_empty(t_game *game, int y, int x, char direction)
 {
 	pitw(game, y, x, 'P');
 	if (game->draw.map[game->position.y][game->position.x] == 'E')
@@ -51,7 +51,7 @@ void	move_to_collectible(t_game *game, int y, int x, char direction)
 	else
 		pitw(game, game->position.y, game->position.x, '0');
 	game->draw.map[y][x] = '0';
-    change_position(game, direction);
+	change_position(game, direction);
 	game->step++;
 	game->counter.collectible--;
 }
@@ -68,6 +68,6 @@ void	move_to_exit(t_game *game, int y, int x, char direction)
 	}
 	pitw(game, y, x, 'P');
 	pitw(game, game->position.y, game->position.x, '0');
-    change_position(game, direction);
+	change_position(game, direction);
 	game->step++;
 }

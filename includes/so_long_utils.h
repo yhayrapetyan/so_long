@@ -87,15 +87,18 @@ typedef struct s_game
 }				t_game;
 
 # ifdef __linux__
+#  define UNAME		"Linux"
 #  define UP_KEY    65362
 #  define DOWN_KEY  65364
 #  define LEFT_KEY  65361
-#  define RIGHT_KEY 65363
+#  define RIGHT_KEY 6536
 #  define ESC		65307
 #  define STR_X		16
 #  define STR_Y		16
+#  define INTERVAL	43
 
 # elif defined(__APPLE__)
+#  define UNAME		"Darwin"
 #  define UP_KEY    126
 #  define DOWN_KEY  125
 #  define LEFT_KEY  123
@@ -103,6 +106,7 @@ typedef struct s_game
 #  define ESC		53
 #  define STR_X		0
 #  define STR_Y		0
+#  define INTERVAL	70
 
 # else
 #  define UP_KEY    0
