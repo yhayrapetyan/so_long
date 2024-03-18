@@ -33,6 +33,5 @@ int	main(int ac, char **av)
 	if (!is_ber(av[1]))
 		ft_error("Invalid argument\n");
 	init_game(&game, av[1]);
-	system("leaks so_long");
 	return (0);
 }

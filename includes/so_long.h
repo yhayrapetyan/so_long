@@ -37,16 +37,17 @@ char	*ft_itoa(int n);
 int		ft_strlen(char *str);
 void	free_split(char **str);
 int		ft_strchr(char *s, int c);
-void	ft_putnbr_fd(int n, int fd);
+char	*ft_strdup(const char *s1);
 char	**ft_split(char const *s, char c);
 char	*ft_strcpy(char *dest, char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_strtrim_end(char const *s1, char const *set);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 void	flood_fill(char **tab, t_point size, t_point cur, char to_fill);
 
 // MAIN FUNCTIONS
-void    end_game(t_game *game);
+void	end_game(t_game *game);
 int		close_win(t_game *game);
 void	create_map(t_game *game);
 void	init_window(t_game *game);
@@ -58,7 +59,7 @@ int		movement(int keycode, t_game *game);
 void	pitw(t_game *game, int i, int j, char element);
 void	move_to(t_game *game, int y, int x, char direction);
 void	move_to_exit(t_game *game, int y, int x, char direction);
-void	move_to_empty(t_game *game, int	y, int x, char direction);
+void	move_to_empty(t_game *game, int y, int x, char direction);
 void	move_to_collectible(t_game *game, int y, int x, char direction);
 
 #endif

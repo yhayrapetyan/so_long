@@ -49,11 +49,7 @@ int	movement(int keycode, t_game *game)
 	else if (keycode == LEFT_KEY)
 		move_to(game, game->position.y, game->position.x - 1, 'L');
 	else if (keycode == ESC)
-	{
 		end_game(game);
-		system("leaks so_long");
-	}
-	// system("leaks so_long");
 	print_steps(game);
 	return (0);
 }

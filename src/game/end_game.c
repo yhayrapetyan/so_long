@@ -25,11 +25,5 @@ void	end_game(t_game *game)
 	mlx_destroy_image(game->mlx, game->enemy.frame3);
 	mlx_destroy_image(game->mlx, game->enemy.frame4);
 	mlx_destroy_window(game->mlx, game->win);
-	// if (ft_strcmp(UNAME, "Darwin") == 0)
-	// {
-	// 	printf("add = %p\n", game->mlx);
-	// 	free(game->mlx);
-	// }
-	system("leaks so_long");
 	exit(0);
 }

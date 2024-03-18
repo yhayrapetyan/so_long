@@ -26,7 +26,9 @@ HELPERS_SRC = 	ft_itoa.c \
 				ft_strlen.c \
 				ft_strtrim.c \
 				ft_split.c \
-				flood_fill.c
+				flood_fill.c \
+				ft_strdup.c \
+				ft_strtrim_end.c
 
 MOVEMENT_SRC = 	movement_utils.c \
 				move_to.c
@@ -83,7 +85,7 @@ SRC_PCT = $(shell expr 100 \* $(SRC_COUNT) / $(SRC_COUNT_TOT))
 
 all: print_info $(NAME)
 
-$(NAME): $(OBJS) 
+$(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIB_FLAGS) -o $(NAME)
 	@printf "%b" "$(BLUE)\n$@ $(GREEN)[✓]\n"
 

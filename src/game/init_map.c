@@ -36,6 +36,25 @@ static int	is_empty(char *str)
 	return (1);
 }
 
+static char	*ft_smart_trim(char **temp)
+{
+	char	*trim_temp;
+
+	if (is_empty(*temp))
+	{
+		trim_temp = *temp;
+		*temp = ft_strtrim(*temp, " \t\f\r\v");
+		free(trim_temp);
+	}
+	else
+	{
+		trim_temp = *temp;
+		*temp = ft_strtrim_end(*temp, "\t\f\r\v ");
+		free(trim_temp);
+	}
+	return (*temp);
+}
+
 static void	read_file(t_game *game, int fd)
 {
 	char	*temp;
@@ -48,12 +67,7 @@ static void	read_file(t_game *game, int fd)
 		temp = get_next_line(fd);
 		if (!temp)
 			break ;
-		if (is_empty(temp))
-		{
-			trim_temp = temp;
-			temp = ft_strtrim(temp, " \t\f\r\v");
-			free(trim_temp);
-		}
+		temp = ft_smart_trim(&temp);
 		game->draw.line = ft_strjoin(game->draw.line, temp);
 		free(temp);
 	}

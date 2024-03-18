@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuhayrap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 14:38:43 by yuhayrap          #+#    #+#             */
-/*   Updated: 2024/03/07 14:38:48 by yuhayrap         ###   ########.fr       */
+/*   Created: 2024/01/10 12:06:11 by yuhayrap          #+#    #+#             */
+/*   Updated: 2024/01/10 12:06:12 by yuhayrap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_error(char *message)
+char	*ft_strdup(const char *s1)
 {
-	write(2, RED, 7);
-	write(2, "Error\n", 6);
-	write(2, YELLOW, 7);
-	write(2, message, ft_strlen(message));
-	write(2, RESET_COLOR, 4);
-	exit(255);
+	unsigned int	i;
+	char			*ptr;
+
+	i = 0;
+	while (s1[i])
+		i++;
+	ptr = (char *)malloc((i + 1) * sizeof(*s1));
+	i = 0;
+	if (ptr == NULL)
+		return (0);
+	while (s1[i])
+	{
+		ptr[i] = s1[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }

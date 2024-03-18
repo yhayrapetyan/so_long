@@ -64,7 +64,6 @@ void	move_to_exit(t_game *game, int y, int x, char direction)
 		write(1, "You Win!\n", 9);
 		write(2, RESET_COLOR, 4);
 		end_game(game);
-		system("leaks so_long");
 	}
 	pitw(game, y, x, 'P');
 	pitw(game, game->position.y, game->position.x, '0');
