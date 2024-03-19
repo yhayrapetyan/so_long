@@ -79,7 +79,8 @@ else
 	LIB_FLAGS = -L./mlx -lmlx -lXext -lX11 -lm -lbsd
 endif
 
-SRC_COUNT_TOT := $(shell echo -n $(SRC) | wc -w)
+SRC := $(shell printf "$(SRC)" | tr '\r' '\n')
+SRC_COUNT_TOT := $(words $(SRC))
 SRC_COUNT := 0
 SRC_PCT = $(shell expr 100 \* $(SRC_COUNT) / $(SRC_COUNT_TOT))
 
