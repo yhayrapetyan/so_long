@@ -49,7 +49,7 @@ static char	*ft_smart_trim(char **temp)
 	else
 	{
 		trim_temp = *temp;
-		*temp = ft_strtrim_end(*temp, "\t\f\r\v ");
+		*temp = ft_strtrim_end(*temp, "\t\f\r\v\n ");
 		free(trim_temp);
 	}
 	return (*temp);
